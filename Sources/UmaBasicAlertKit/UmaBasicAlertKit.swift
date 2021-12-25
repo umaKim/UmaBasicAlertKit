@@ -2,7 +2,7 @@ import UIKit
 
 public extension UIViewController {
     // MARK: 취소와 확인이 뜨는 UIAlertController
-    func presentAlert(title: String,
+    func presentUmaBasicAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
                       actionDoneButtonTitle: String? = nil,
