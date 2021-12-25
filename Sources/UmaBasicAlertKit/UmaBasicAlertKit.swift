@@ -11,15 +11,7 @@ public extension UIViewController {
                       handler: ((UIAlertAction) -> Void)? = nil) {
 //        self.dismissIndicator()
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
-        
-//        var actionDone = UIAlertAction()
-//        if let title = actionDoneButtonTitle {
-//            actionDone = UIAlertAction(title: title, style: .default, handler: handler)
-//        } else {
-//            actionDone = UIAlertAction(title: "Ok", style: .default, handler: handler)
-//        }
         let actionDone = UIAlertAction(title: actionDoneButtonTitle, style: .default, handler: handler)
-        
         alert.addAction(actionDone)
         
         if isCancelActionIncluded {
@@ -31,7 +23,7 @@ public extension UIViewController {
     }
     
     // MARK: 커스텀 UIAction이 뜨는 UIAlertController
-    func presentAlert(title: String,
+    func presentUmaBasicAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
                       actionCancelButtonTitle: String = "취소",
