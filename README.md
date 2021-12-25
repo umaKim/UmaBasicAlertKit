@@ -16,16 +16,48 @@ For Rules, select Version (Up to Next Major) and click Next.
 Click Finish.
 
 ## Usage
+### presentUmaDefaultAlert
 ```Swift
-let katView = KatView()
-katView.items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8"]
+presentUmaDefaultAlert(title: "Title")
+
+presentUmaDefaultAlert(title: "Tile", message: "Message")
+
+presentUmaDefaultAlert(title: "Cancel Button Pop up", isCancelActionIncluded: true)
+
+presentUmaDefaultAlert(title: "Pop up with completion", message: "press ok ", isCancelActionIncluded: true, actionCancelButtonTitle: "Cancel") { action in
+            self.view.backgroundColor = .yellow
+        }
 ```
 
+### presentUmaActionAlert
 ```Swift
-katView.delegate = self
-func katView(_ katView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+let action = UIAlertAction(title: "change background to Red", style: .default) { action in
+            self.view.backgroundColor = .red
+        }
+presentUmaActionAlert(title: "You can add custom alert action", isCancelActionIncluded: true, with: action)
 
-}
+
+let actionR = UIAlertAction(title: "change background color to Red", style: .default) { action in
+            self.view.backgroundColor = .red
+        }
+        let actionG = UIAlertAction(title: "change background color to Green", style: .default) { action in
+            self.view.backgroundColor = .green
+        }
+        let actionB = UIAlertAction(title: "change background color to Blue", style: .default) { action in
+            self.view.backgroundColor = .blue
+        }
+        let cancelAction = UIAlertAction(title: "change background color to White", style: .cancel) { action in
+            self.view.backgroundColor = .white
+        }
+presentUmaActionAlert(
+            title: "You can add custom alert action",
+            with: actionR, actionG, actionB, cancelAction
+        )
+```
+
+### presentUmaBottomAlert
+```Swift
+presentUmaBottomAlert(message: "Bottom Alert Message")
 ```
 
 ## Requirements
