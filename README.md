@@ -19,11 +19,17 @@ Click Finish.
 ### presentUmaDefaultAlert
 ```Swift
 presentUmaDefaultAlert(title: "Title")
+```
 
+```Swift
 presentUmaDefaultAlert(title: "Tile", message: "Message")
+```
 
+```Swift
 presentUmaDefaultAlert(title: "Cancel Button Pop up", isCancelActionIncluded: true)
+```
 
+```Swift
 presentUmaDefaultAlert(title: "Pop up with completion", message: "press ok ", isCancelActionIncluded: true, actionCancelButtonTitle: "Cancel") { action in
             self.view.backgroundColor = .yellow
         }
@@ -35,8 +41,9 @@ let action = UIAlertAction(title: "change background to Red", style: .default) {
             self.view.backgroundColor = .red
         }
 presentUmaActionAlert(title: "You can add custom alert action", isCancelActionIncluded: true, with: action)
+```
 
-
+```Swift
 let actionR = UIAlertAction(title: "change background color to Red", style: .default) { action in
             self.view.backgroundColor = .red
         }
