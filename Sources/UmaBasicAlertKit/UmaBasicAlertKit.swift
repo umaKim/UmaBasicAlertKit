@@ -6,10 +6,9 @@ public extension UIViewController {
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
                       actionDoneButtonTitle: String? = "Ok",
-                      actionCancelButtonTitle: String = "취소",
+                      actionCancelButtonTitle: String = "Cancel",
                       preferredStyle style: UIAlertController.Style = .alert,
                       handler: ((UIAlertAction) -> Void)? = nil) {
-//        self.dismissIndicator()
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         let actionDone = UIAlertAction(title: actionDoneButtonTitle, style: .default, handler: handler)
         alert.addAction(actionDone)
@@ -26,16 +25,17 @@ public extension UIViewController {
     func presentUmaBasicActionAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
-                      actionCancelButtonTitle: String = "취소",
+                      actionCancelButtonTitle: String = "Cancel",
                       preferredStyle style: UIAlertController.Style = .alert,
                       with actions: UIAlertAction ...) {
-//        self.dismissIndicator()
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         actions.forEach { alert.addAction($0) }
+        
         if isCancelActionIncluded {
             let actionCancel = UIAlertAction(title: actionCancelButtonTitle, style: .cancel, handler: nil)
             alert.addAction(actionCancel)
         }
+        
         self.present(alert, animated: true, completion: nil)
     }
     
