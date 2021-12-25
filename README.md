@@ -1,5 +1,5 @@
 # UmaBasicAlertKit
-UmaBasicAlertKit is a Swift UI library for iOS. It looks similar to the Daagn market category horizontal scroll view, while allowing customization when needed.
+UmaBasicAlertKit is a Swift UI library for iOS. This library allows user to use variations of Apple's default pop up alert with one line of code.
 
 ## Installation
 UmaBasicAlertKit can be installed with Swift Package Manager.
