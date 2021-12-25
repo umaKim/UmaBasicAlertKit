@@ -1,7 +1,7 @@
 import UIKit
 
 public extension UIViewController {
-    // MARK: 취소와 확인이 뜨는 UIAlertController
+    //MARK: UIAlertController with cancel and confirm buttons
     func presentUmaBasicDefaultAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
@@ -21,7 +21,7 @@ public extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    // MARK: 커스텀 UIAction이 뜨는 UIAlertController
+    // MARK: UIAlertController with Custom UIAction
     func presentUmaBasicActionAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
@@ -40,41 +40,43 @@ public extension UIViewController {
     }
     
     // MARK: 커스텀 하단 경고창
-//    func presentBottomAlert(message: String, target: ConstraintRelatableTarget? = nil, offset: Double? = -12) {
-//        let alertSuperview = UIView()
-//        alertSuperview.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-//        alertSuperview.layer.cornerRadius = 10
-//        alertSuperview.isHidden = true
-//
-//        let alertLabel = UILabel()
-//        alertLabel.font = .NotoSans(.regular, size: 15)
-//        alertLabel.textColor = .white
-//
-//        self.view.addSubview(alertSuperview)
-//        alertSuperview.snp.makeConstraints { make in
-//            make.bottom.equalTo(target ?? self.view.safeAreaLayoutGuide).offset(-12)
-//            make.centerX.equalToSuperview()
-//        }
-//
-//        alertSuperview.addSubview(alertLabel)
-//        alertLabel.snp.makeConstraints { make in
-//            make.top.equalTo(6)
-//            make.bottom.equalTo(-6)
-//            make.leading.equalTo(12)
-//            make.trailing.equalTo(-12)
-//        }
-//
-//        alertLabel.text = message
-//        alertSuperview.alpha = 1.0
-//        alertSuperview.isHidden = false
-//        UIView.animate(
-//            withDuration: 2.0,
-//            delay: 1.0,
-//            options: .curveEaseIn,
-//            animations: { alertSuperview.alpha = 0 },
-//            completion: { _ in
-//                alertSuperview.removeFromSuperview()
-//            }
-//        )
-//    }
+    func presentBottomAlert(message: String) {
+        let alertSuperview = UIView()
+        alertSuperview.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        alertSuperview.layer.cornerRadius = 10
+        alertSuperview.isHidden = true
+    
+        let alertLabel = UILabel()
+        alertLabel.font = .systemFont(ofSize: 15)
+        alertLabel.textColor = .white
+        
+        self.view.addSubview(alertSuperview)
+        alertSuperview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            alertSuperview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12),
+            alertSuperview.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
+        
+        alertSuperview.addSubview(alertLabel)
+        alertLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            alertLabel.topAnchor.constraint(equalTo: alertSuperview.topAnchor, constant: 6),
+            alertLabel.bottomAnchor.constraint(equalTo: alertSuperview.bottomAnchor, constant: -6),
+            alertLabel.leadingAnchor.constraint(equalTo: alertSuperview.leadingAnchor, constant: 12),
+            alertLabel.trailingAnchor.constraint(equalTo: alertSuperview.trailingAnchor, constant: -12)
+        ])
+        
+        alertLabel.text = message
+        alertSuperview.alpha = 1.0
+        alertSuperview.isHidden = false
+        UIView.animate(
+            withDuration: 2.0,
+            delay: 1.0,
+            options: .curveEaseIn,
+            animations: { alertSuperview.alpha = 0 },
+            completion: { _ in
+                alertSuperview.removeFromSuperview()
+            }
+        )
+    }
 }
