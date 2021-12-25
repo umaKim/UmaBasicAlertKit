@@ -2,7 +2,7 @@ import UIKit
 
 public extension UIViewController {
     // MARK: 취소와 확인이 뜨는 UIAlertController
-    func presentUmaBasicAlert(title: String,
+    func presentUmaBasicDefaultAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
                       actionDoneButtonTitle: String? = "Ok",
@@ -23,7 +23,7 @@ public extension UIViewController {
     }
     
     // MARK: 커스텀 UIAction이 뜨는 UIAlertController
-    func presentUmaBasicAlert(title: String,
+    func presentUmaBasicActionAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
                       actionCancelButtonTitle: String = "취소",
