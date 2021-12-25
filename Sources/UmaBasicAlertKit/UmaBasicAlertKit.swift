@@ -5,18 +5,21 @@ public extension UIViewController {
     func presentAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
-                      actionDoneButtonTitle: String? = "확인",
+//                      actionDoneButtonTitle: String? = "확인",
                       actionCancelButtonTitle: String = "취소",
                       preferredStyle style: UIAlertController.Style = .alert,
                       handler: ((UIAlertAction) -> Void)? = nil) {
 //        self.dismissIndicator()
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
-        let actionDone = UIAlertAction(title: actionDoneButtonTitle, style: .default, handler: handler)
+        let actionDone = UIAlertAction(title: "그런가?", style: .default, handler: handler)
+        
         alert.addAction(actionDone)
+        
         if isCancelActionIncluded {
             let actionCancel = UIAlertAction(title: actionCancelButtonTitle, style: .cancel, handler: nil)
             alert.addAction(actionCancel)
         }
+        
         self.present(alert, animated: true, completion: nil)
     }
     
