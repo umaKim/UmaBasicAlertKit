@@ -5,19 +5,20 @@ public extension UIViewController {
     func presentUmaBasicAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
-                      actionDoneButtonTitle: String? = nil,
+                      actionDoneButtonTitle: String? = "Ok",
                       actionCancelButtonTitle: String = "취소",
                       preferredStyle style: UIAlertController.Style = .alert,
                       handler: ((UIAlertAction) -> Void)? = nil) {
 //        self.dismissIndicator()
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         
-        var actionDone = UIAlertAction()
-        if let title = actionDoneButtonTitle {
-            actionDone = UIAlertAction(title: title, style: .default, handler: handler)
-        } else {
-            actionDone = UIAlertAction(title: "Ok", style: .default, handler: handler)
-        }
+//        var actionDone = UIAlertAction()
+//        if let title = actionDoneButtonTitle {
+//            actionDone = UIAlertAction(title: title, style: .default, handler: handler)
+//        } else {
+//            actionDone = UIAlertAction(title: "Ok", style: .default, handler: handler)
+//        }
+        let actionDone = UIAlertAction(title: actionDoneButtonTitle, style: .default, handler: handler)
         
         alert.addAction(actionDone)
         
