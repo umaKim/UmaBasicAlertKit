@@ -5,7 +5,7 @@ public extension UIViewController {
     func presentAlert(title: String,
                       message: String? = nil,
                       isCancelActionIncluded: Bool = false,
-                      actionDoneButtonTitle: String = "확인",
+                      actionDoneButtonTitle: String? = "확인",
                       actionCancelButtonTitle: String = "취소",
                       preferredStyle style: UIAlertController.Style = .alert,
                       handler: ((UIAlertAction) -> Void)? = nil) {
