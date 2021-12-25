@@ -2,13 +2,13 @@ import UIKit
 
 public extension UIViewController {
     //MARK: UIAlertController with cancel and confirm buttons
-    func presentUmaBasicDefaultAlert(title: String,
-                      message: String? = nil,
-                      isCancelActionIncluded: Bool = false,
-                      actionDoneButtonTitle: String? = "Ok",
-                      actionCancelButtonTitle: String = "Cancel",
-                      preferredStyle style: UIAlertController.Style = .alert,
-                      handler: ((UIAlertAction) -> Void)? = nil) {
+    func presentUmaDefaultAlert(title: String,
+                                message: String? = nil,
+                                isCancelActionIncluded: Bool = false,
+                                actionDoneButtonTitle: String? = "Ok",
+                                actionCancelButtonTitle: String = "Cancel",
+                                preferredStyle style: UIAlertController.Style = .alert,
+                                handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         let actionDone = UIAlertAction(title: actionDoneButtonTitle, style: .default, handler: handler)
         alert.addAction(actionDone)
@@ -22,12 +22,12 @@ public extension UIViewController {
     }
     
     // MARK: UIAlertController with Custom UIAction
-    func presentUmaBasicActionAlert(title: String,
-                      message: String? = nil,
-                      isCancelActionIncluded: Bool = false,
-                      actionCancelButtonTitle: String = "Cancel",
-                      preferredStyle style: UIAlertController.Style = .alert,
-                      with actions: UIAlertAction ...) {
+    func presentUmaActionAlert(title: String,
+                                    message: String? = nil,
+                                    isCancelActionIncluded: Bool = false,
+                                    actionCancelButtonTitle: String = "Cancel",
+                                    preferredStyle style: UIAlertController.Style = .alert,
+                                    with actions: UIAlertAction ...) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         actions.forEach { alert.addAction($0) }
         
@@ -40,12 +40,12 @@ public extension UIViewController {
     }
     
     // MARK: 커스텀 하단 경고창
-    func presentBottomAlert(message: String) {
+    func presentUmaBottomAlert(message: String) {
         let alertSuperview = UIView()
         alertSuperview.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         alertSuperview.layer.cornerRadius = 10
         alertSuperview.isHidden = true
-    
+        
         let alertLabel = UILabel()
         alertLabel.font = .systemFont(ofSize: 15)
         alertLabel.textColor = .white
