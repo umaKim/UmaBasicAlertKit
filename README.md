@@ -16,21 +16,29 @@ For Rules, select Version (Up to Next Major) and click Next.
 Click Finish.
 
 ## Usage
+
+In order to use the methods, Alertable should be implemented by your viewController.
+```Swift
+class ViewController: UIViewController, Alertable {
+
+}
+```
+
 ### presentUmaDefaultAlert
 ```Swift
-presentUmaDefaultAlert(title: "Title")
+showDefaultAlert(title: "Title")
 ```
 
 ```Swift
-presentUmaDefaultAlert(title: "Tile", message: "Message")
+showDefaultAlert(title: "Tile", message: "Message")
 ```
 
 ```Swift
-presentUmaDefaultAlert(title: "Cancel Button Pop up", isCancelActionIncluded: true)
+showDefaultAlert(title: "Cancel Button Pop up", isCancelActionIncluded: true)
 ```
 
 ```Swift
-presentUmaDefaultAlert(title: "Pop up with completion", message: "press ok ", isCancelActionIncluded: true, actionCancelButtonTitle: "Cancel") { action in
+showDefaultAlert(title: "Pop up with completion", message: "press ok ", isCancelActionIncluded: true, actionCancelButtonTitle: "Cancel") { action in
             self.view.backgroundColor = .yellow
         }
 ```
@@ -40,7 +48,7 @@ presentUmaDefaultAlert(title: "Pop up with completion", message: "press ok ", is
 let action = UIAlertAction(title: "change background to Red", style: .default) { action in
             self.view.backgroundColor = .red
         }
-presentUmaActionAlert(title: "You can add custom alert action", isCancelActionIncluded: true, with: action)
+showActionAlert(title: "You can add custom alert action", isCancelActionIncluded: true, with: action)
 ```
 
 ```Swift
@@ -56,7 +64,7 @@ let actionR = UIAlertAction(title: "change background color to Red", style: .def
         let cancelAction = UIAlertAction(title: "change background color to White", style: .cancel) { action in
             self.view.backgroundColor = .white
         }
-presentUmaActionAlert(
+showActionAlert(
             title: "You can add custom alert action",
             with: actionR, actionG, actionB, cancelAction
         )
@@ -64,7 +72,7 @@ presentUmaActionAlert(
 
 ### presentUmaBottomAlert
 ```Swift
-presentUmaBottomAlert(message: "Bottom Alert Message")
+showBottomAlert(message: "Bottom Alert Message")
 ```
 
 ## Requirements
