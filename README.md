@@ -24,7 +24,7 @@ class ViewController: UIViewController, Alertable {
 }
 ```
 
-### presentUmaDefaultAlert
+### showDefaultAlert
 ```Swift
 showDefaultAlert(title: "Title")
 ```
@@ -43,7 +43,7 @@ showDefaultAlert(title: "Pop up with completion", message: "press ok ", isCancel
         }
 ```
 
-### presentUmaActionAlert
+### showActionAlert
 ```Swift
 let action = UIAlertAction(title: "change background to Red", style: .default) { action in
             self.view.backgroundColor = .red
@@ -70,7 +70,7 @@ showActionAlert(
         )
 ```
 
-### presentUmaBottomAlert
+### showBottomAlert
 ```Swift
 showBottomAlert(message: "Bottom Alert Message")
 ```
